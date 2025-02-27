@@ -2,6 +2,7 @@ package com.bridgelabz.employeepayrollapp.controller;
 
 
 
+import com.bridgelabz.employeepayrollapp.dto.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.model.Employee;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping("/employeepayrollservice")
 public class EmployeePayrollController {
     private List<Employee> employeeList = new ArrayList<>();
+    private int counter = 1;
 
     // Get All Employees
     @GetMapping("/")
@@ -34,9 +36,10 @@ public class EmployeePayrollController {
 
     // Create New Employee
     @PostMapping("/create")
-    public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
-        employeeList.add(employee);
-        return new ResponseEntity<>(employee, HttpStatus.CREATED);
+    public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        Employee newEmployee = new Employee(counter++, employeeDTO);
+        employeeList.add(newEmployee);
+        return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
     }
 
     // Update Employee by ID

@@ -1,16 +1,20 @@
 package com.bridgelabz.employeepayrollapp.model;
 
 
+import com.bridgelabz.employeepayrollapp.dto.EmployeeDTO;
 
 public class Employee {
     private int id;
     private String name;
     private double salary;
 
-    public Employee(int id, String name, double salary) {
+    public Employee() {
+    }
+
+    public Employee(int id, EmployeeDTO employeeDTO) {
         this.id = id;
-        this.name = name;
-        this.salary = salary;
+        this.name = employeeDTO.getName();
+        this.salary = employeeDTO.getSalary();
     }
 
     public int getId() {
@@ -35,5 +39,10 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
     }
 }
