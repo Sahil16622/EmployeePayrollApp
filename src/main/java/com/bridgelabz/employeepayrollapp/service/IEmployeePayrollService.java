@@ -12,4 +12,6 @@ public interface IEmployeePayrollService {
     Employee createEmployee(EmployeeDTO employeeDTO);
     Employee updateEmployee(int id, EmployeeDTO employeeDTO);
     void deleteEmployee(int id);
+
+    void addEmployee(EmployeeDTO employeePayrollDTO);
 }
