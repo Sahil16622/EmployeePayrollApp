@@ -52,4 +52,9 @@ public class EmployeePayrollService implements IEmployeePayrollService {
         Employee employee = this.getEmployeeById(id);
         employeeRepository.delete(employee);
     }
+
+    @Override
+    public void addEmployee(EmployeeDTO employeePayrollDTO) {
+
+    }
 }
